@@ -4,27 +4,29 @@
 class Farm
 {
     private array $animals = [];
-    private array $productsCount = [];
+    private array $productsCounter = [];
 
     public function addAnimal(Animal &$animal):void
     {
         $this->animals[$animal->getRegId()] = $animal;
-        $this->productsCount[$animal->getProductName()] = null;
+        $this->productsCounter[$animal->getProductName()] = null;
     }
 
-    public function collectProducts():array {
-        foreach ($this->productsCount as $product) {
+    public function collectProducts():array 
+    {
+        foreach ($this->productsCounter as $product) {
             $product = 0;
         }
         foreach ($this->animals as $animal) {
-            $this->productsCount[$animal->getProductName()] += $animal->produceProduct();
+            $this->productsCounter[$animal->getProductName()] += $animal->produceProduct();
         }
-        return $this->productsCount;
+        return $this->productsCounter;
     }
 
-    public function showHarvest():string {
+    public function showHarvest():string 
+    {
         $str = "Всего было собрано:\n";
-        foreach ($this->productsCount as $productName => $productCount) {
+        foreach ($this->productsCounter as $productName => $productCount) {
             $str = $str . $productName . " " . $productCount . "\n";
         }
         return $str;
@@ -49,16 +51,16 @@ class Farm
     /**
      * @return array
      */
-    public function getProductsCount(): array
+    public function getproductsCounter(): array
     {
-        return $this->productsCount;
+        return $this->productsCounter;
     }
 
     /**
-     * @param array $productsCount
+     * @param array $productsCounter
      */
-    public function setProductsCount(array $productsCount): void
+    public function setproductsCounter(array $productsCounter): void
     {
-        $this->productsCount = $productsCount;
+        $this->productsCounter = $productsCounter;
     }
 }

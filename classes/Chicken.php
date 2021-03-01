@@ -3,10 +3,14 @@
 
 class Chicken extends Animal
 {
-    protected string $productName = "яйца";
+    function __construct()
+    {
+        $this->product = new Product("яйца",0,"шт");
+    }
 
-    function produceProduct(): int {
-        $this->setProductCount(rand(0, 1));
-        return $this->productCount;
+    public function produceProduct(): int
+    {
+        $this->product->setProductCount(rand(0, 1));
+        return $this->product->getProductCount();
     }
 }

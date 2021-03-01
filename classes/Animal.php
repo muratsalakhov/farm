@@ -1,18 +1,34 @@
 <?php
 
-class Animal {
-    protected string $regId;
-    protected int $productCount;
-    protected string $productName;
 
-    function __construct() {
+class Animal
+{
+    protected string $regId;
+    protected Product $product;
+
+    function __construct()
+    {
         $this->regId = uniqid();
-        $this->productCount = 0;
     }
 
-    function produceProduct(): int
+    public function produceProduct(): int
     {
-        return $this->productCount;
+        return $this->productCount->getgetProductCount();
+    }
+
+    public function getProductName(): string
+    {
+        return $this->product->getProductName();
+    }
+
+    public function getProductUnit(): string
+    {
+        return $this->product->getProductUnit();
+    }
+
+    public function getProductCount(): string
+    {
+        return $this->product->getProductCount();
     }
 
     /**
@@ -32,34 +48,18 @@ class Animal {
     }
 
     /**
-     * @return int
+     * @return Product
      */
-    public function getProductCount(): int
+    public function getProduct(): Product
     {
-        return $this->productCount;
+        return $this->product;
     }
 
     /**
-     * @param int $productCount
+     * @param Product $product
      */
-    public function setProductCount(int $productCount): void
+    public function setProduct(Product $product): void
     {
-        $this->productCount = $productCount;
-    }
-
-    /**
-     * @return string
-     */
-    public function getProductName(): string
-    {
-        return $this->productName;
-    }
-
-    /**
-     * @param string $productName
-     */
-    public function setProductName(string $productName): void
-    {
-        $this->productName = $productName;
+        $this->product = $product;
     }
 }
