@@ -1,8 +1,8 @@
 <?php
 
 class Animal {
-    private $reg_id;
-    private $product_count;
+    protected $reg_id;
+    protected $product_count;
 
     function __construct() {
         $this->reg_id = rand(1000,9999);
