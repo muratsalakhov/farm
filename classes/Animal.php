@@ -1,11 +1,11 @@
 <?php
 
 class Animal {
-    protected int $regId;
+    protected string $regId;
     protected int $productCount;
 
     function __construct() {
-        $this->regId = rand(1000,9999);
+        $this->regId = uniqid();
         $this->productCount = 0;
     }
 
@@ -15,23 +15,23 @@ class Animal {
     }
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getRegId(): int
+    public function getRegId(): string
     {
         return $this->regId;
     }
 
     /**
-     * @param mixed $regId
+     * @param string $regId
      */
-    public function setRegId(int $regId)
+    public function setRegId(string $regId): void
     {
         $this->regId = $regId;
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getProductCount(): int
     {
@@ -39,10 +39,12 @@ class Animal {
     }
 
     /**
-     * @param mixed $productCount
+     * @param int $productCount
      */
-    public function setProductCount(int $productCount)
+    public function setProductCount(int $productCount): void
     {
         $this->productCount = $productCount;
     }
+
+
 }
