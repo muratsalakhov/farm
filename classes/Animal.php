@@ -1,47 +1,48 @@
 <?php
 
 class Animal {
-    protected $reg_id;
-    protected $product_count;
+    protected int $regId;
+    protected int $productCount;
 
     function __construct() {
-        $this->reg_id = rand(1000,9999);
-        $this->product_count = 0;
+        $this->regId = rand(1000,9999);
+        $this->productCount = 0;
     }
 
-    function produceProduct() {
-        return $this->product_count;
+    function produceProduct(): int
+    {
+        return $this->productCount;
     }
 
     /**
      * @return mixed
      */
-    public function getRegId()
+    public function getRegId(): int
     {
-        return $this->reg_id;
+        return $this->regId;
     }
 
     /**
-     * @param mixed $reg_id
+     * @param mixed $regId
      */
-    public function setRegId($reg_id)
+    public function setRegId(int $regId)
     {
-        $this->reg_id = $reg_id;
+        $this->regId = $regId;
     }
 
     /**
      * @return mixed
      */
-    public function getProductCount()
+    public function getProductCount(): int
     {
-        return $this->product_count;
+        return $this->productCount;
     }
 
     /**
-     * @param mixed $product_count
+     * @param mixed $productCount
      */
-    public function setProductCount($product_count)
+    public function setProductCount(int $productCount)
     {
-        $this->product_count = $product_count;
+        $this->productCount = $productCount;
     }
 }

@@ -3,8 +3,8 @@
 
 class Chicken extends Animal
 {
-    function produceProduct() {
+    function produceProduct(): int {
         $this->setProductCount(rand(0, 1));
-        return $this->product_count;
+        return $this->productCount;
     }
 }
