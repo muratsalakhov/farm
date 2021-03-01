@@ -3,6 +3,7 @@
 class Animal {
     protected string $regId;
     protected int $productCount;
+    protected string $productName;
 
     function __construct() {
         $this->regId = uniqid();
@@ -46,5 +47,19 @@ class Animal {
         $this->productCount = $productCount;
     }
 
+    /**
+     * @return string
+     */
+    public function getProductName(): string
+    {
+        return $this->productName;
+    }
 
+    /**
+     * @param string $productName
+     */
+    public function setProductName(string $productName): void
+    {
+        $this->productName = $productName;
+    }
 }
