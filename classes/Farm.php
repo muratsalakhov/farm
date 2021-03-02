@@ -1,5 +1,6 @@
 <?php
 
+namespace Farm;
 
 class Farm
 {
@@ -7,7 +8,7 @@ class Farm
     private array $productsCounter = []; // производимые продукты
 
     // добавление нового животного
-    public function addAnimal($newAnimal):void
+    public function addAnimal(Animal $newAnimal):void
     {
         $newAnimal->setRegId(uniqid());
         if (array_key_exists($newAnimal->getRegId(), $this->animals)) {

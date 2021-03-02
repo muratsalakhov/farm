@@ -1,6 +1,6 @@
 <?php
 
-require_once 'classes/Product.php';
+namespace Farm;
 
 abstract class Animal
 {

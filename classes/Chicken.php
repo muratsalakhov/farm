@@ -1,6 +1,6 @@
 <?php
 
-require_once "Animal.php";
+namespace Farm;
 
 class Chicken extends Animal
 {

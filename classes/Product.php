@@ -1,5 +1,7 @@
 <?php
 
+namespace Farm;
+
 class Product
 {
     private string $productName; // название продукта

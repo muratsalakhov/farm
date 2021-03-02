@@ -1,8 +1,8 @@
 <?php
 
-require_once 'classes/Cow.php';
-require_once 'classes/Chicken.php';
-require_once 'classes/Farm.php';
+namespace Farm;
+
+require_once __DIR__ . '/vendor/autoload.php';
 
 const CHICKEN_COUNT = 20; // количество кур
 const COW_COUNT = 10; // количество коров
