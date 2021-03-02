@@ -1,0 +1,14 @@
+{
+    "name": "murat/farm_test",
+    "authors": [
+        {
+            "name": "muratsalakhov",
+            "email": "muratsalakhov@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Farm\\": "./classes/"
+        }
+    }
+}
