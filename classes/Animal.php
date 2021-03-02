@@ -55,6 +55,4 @@ abstract class Animal
     {
         $this->product = $product;
     }
-
-
 }

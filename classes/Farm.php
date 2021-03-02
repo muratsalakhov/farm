@@ -29,6 +29,7 @@ class Farm
         foreach ($this->productsCounter as $product) {
             $str = $str . $product->getProductName() . " " . $product->getProductCount() . " " . $product->getProductUnit() ."\n";
         }
+        echo $str;
         return $str;
     }
 

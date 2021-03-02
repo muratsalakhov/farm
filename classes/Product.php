@@ -64,6 +64,4 @@ class Product
     {
         $this->productUnit = $productUnit;
     }
-
-
 }
