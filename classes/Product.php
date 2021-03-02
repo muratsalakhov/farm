@@ -13,6 +13,10 @@ class Product
         $this->productUnit = $productUnit;
     }
 
+    public function addProductCount(int $count): void {
+        $this->productCount += $count;
+    }
+
     /**
      * @return string
      */

@@ -6,19 +6,19 @@ class Farm
     private array $animals = [];
     private array $productsCounter = [];
 
-    public function addAnimal(Animal &$animal):void
+    public function addAnimal(&$animal):void
     {
         $this->animals[$animal->getRegId()] = $animal;
-        $this->productsCounter[$animal->getProductName()] = null;
+        $this->productsCounter[$animal->getProductName()] = new Product($animal->getProductName(), 0, $animal->getProductUnit());
     }
 
     public function collectProducts():array 
     {
         foreach ($this->productsCounter as $product) {
-            $product = 0;
+            $product->setProductCount(0);
         }
         foreach ($this->animals as $animal) {
-            $this->productsCounter[$animal->getProductName()] += $animal->produceProduct();
+            $this->productsCounter[$animal->getProductName()]->addProductCount($animal->produceProduct());
         }
         return $this->productsCounter;
     }
@@ -26,8 +26,8 @@ class Farm
     public function showHarvest():string 
     {
         $str = "Всего было собрано:\n";
-        foreach ($this->productsCounter as $productName => $productCount) {
-            $str = $str . $productName . " " . $productCount . "\n";
+        foreach ($this->productsCounter as $product) {
+            $str = $str . $product->getProductName() . " " . $product->getProductCount() . " " . $product->getProductUnit() ."\n";
         }
         return $str;
     }

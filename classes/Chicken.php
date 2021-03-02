@@ -5,6 +5,7 @@ class Chicken extends Animal
 {
     function __construct()
     {
+        $this->regId = uniqid();
         $this->product = new Product("яйца",0,"шт");
     }
 

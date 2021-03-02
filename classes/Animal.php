@@ -1,20 +1,13 @@
 <?php
 
+require_once 'classes/Product.php';
 
-class Animal
+abstract class Animal
 {
     protected string $regId;
     protected Product $product;
 
-    function __construct()
-    {
-        $this->regId = uniqid();
-    }
-
-    public function produceProduct(): int
-    {
-        return $this->productCount->getgetProductCount();
-    }
+    abstract public function produceProduct();
 
     public function getProductName(): string
     {
@@ -62,4 +55,6 @@ class Animal
     {
         $this->product = $product;
     }
+
+
 }
