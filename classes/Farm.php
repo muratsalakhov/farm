@@ -6,10 +6,18 @@ class Farm
     private array $animals = [];
     private array $productsCounter = [];
 
-    public function addAnimal(&$animal):void
+    public function addAnimal($newAnimal):void
     {
-        $this->animals[$animal->getRegId()] = $animal;
-        $this->productsCounter[$animal->getProductName()] = new Product($animal->getProductName(), 0, $animal->getProductUnit());
+        $newAnimal->setRegId(uniqid());
+        if (array_key_exists($newAnimal->getRegId(), $this->animals)) {
+            do {
+                $newAnimal->setRegId(uniqid());
+            } while (array_key_exists($newAnimal->getRegId(), $this->animals));
+            $this->animals[$newAnimal->getRegId()] = $newAnimal;
+        } else {
+            $this->animals[$newAnimal->getRegId()] = $newAnimal;
+        }
+        $this->productsCounter[$newAnimal->getProductName()] = new Product($newAnimal->getProductName(), 0, $newAnimal->getProductUnit());
     }
 
     public function collectProducts():array 
@@ -27,7 +35,7 @@ class Farm
     {
         $str = "Всего было собрано:\n";
         foreach ($this->productsCounter as $product) {
-            $str = $str . $product->getProductName() . " " . $product->getProductCount() . " " . $product->getProductUnit() ."\n";
+            $str = $str . $product->getProductName() . ": " . $product->getProductCount() . " " . $product->getProductUnit() .".\n";
         }
         echo $str;
         return $str;
@@ -42,26 +50,10 @@ class Farm
     }
 
     /**
-     * @param array $animals
-     */
-    public function setAnimals(array $animals): void
-    {
-        $this->animals = $animals;
-    }
-
-    /**
      * @return array
      */
-    public function getproductsCounter(): array
+    public function getProductsCounter(): array
     {
         return $this->productsCounter;
-    }
-
-    /**
-     * @param array $productsCounter
-     */
-    public function setproductsCounter(array $productsCounter): void
-    {
-        $this->productsCounter = $productsCounter;
     }
 }

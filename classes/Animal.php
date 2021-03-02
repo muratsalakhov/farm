@@ -7,6 +7,7 @@ abstract class Animal
     protected string $regId;
     protected Product $product;
 
+    abstract function __construct();
     abstract public function produceProduct();
 
     public function getProductName(): string

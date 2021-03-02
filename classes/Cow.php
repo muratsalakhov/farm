@@ -6,7 +6,6 @@ class Cow extends Animal
 {
     function __construct()
     {
-        $this->regId = uniqid();
         $this->product = new Product("молоко",0,"л");
     }
 
