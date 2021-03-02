@@ -2,9 +2,9 @@
 
 class Product
 {
-    private string $productName;
-    private int $productCount;
-    private string $productUnit;
+    private string $productName; // название продукта
+    private int $productCount; // количество продукта
+    private string $productUnit; // ед. измерения продукта
 
     function __construct(string $productName, int $productCount, $productUnit)
     {
@@ -13,6 +13,7 @@ class Product
         $this->productUnit = $productUnit;
     }
 
+    // увеличить количество продукта
     public function addProductCount(int $count): void {
         $this->productCount += $count;
     }

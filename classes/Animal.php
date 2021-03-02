@@ -4,11 +4,11 @@ require_once 'classes/Product.php';
 
 abstract class Animal
 {
-    protected string $regId;
-    protected Product $product;
+    protected string $regId; // регистрационный номер
+    protected Product $product; // производимый продукт
 
     abstract function __construct();
-    abstract public function produceProduct();
+    abstract public function produceProduct(); // производство продукта
 
     public function getProductName(): string
     {

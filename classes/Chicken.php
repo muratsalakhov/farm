@@ -9,6 +9,7 @@ class Chicken extends Animal
         $this->product = new Product("яйца",0,"шт");
     }
 
+    // производим случайное количество продукта
     public function produceProduct(): int
     {
         $this->product->setProductCount(rand(0, 1));

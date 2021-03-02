@@ -3,9 +3,10 @@
 
 class Farm
 {
-    private array $animals = [];
-    private array $productsCounter = [];
+    private array $animals = []; // животные
+    private array $productsCounter = []; // производимые продукты
 
+    // добавление нового животного
     public function addAnimal($newAnimal):void
     {
         $newAnimal->setRegId(uniqid());
@@ -17,9 +18,12 @@ class Farm
         } else {
             $this->animals[$newAnimal->getRegId()] = $newAnimal;
         }
-        $this->productsCounter[$newAnimal->getProductName()] = new Product($newAnimal->getProductName(), 0, $newAnimal->getProductUnit());
+        if (!array_key_exists($newAnimal->getProductName(), $this->productsCounter)) {
+            $this->productsCounter[$newAnimal->getProductName()] = new Product($newAnimal->getProductName(), 0, $newAnimal->getProductUnit());
+        }
     }
 
+    // сбор продуктов у всех зарегестрированных животных
     public function collectProducts():array 
     {
         foreach ($this->productsCounter as $product) {
@@ -31,6 +35,7 @@ class Farm
         return $this->productsCounter;
     }
 
+    // выводим результат сбора урожая
     public function showHarvest():string 
     {
         $str = "Всего было собрано:\n";
